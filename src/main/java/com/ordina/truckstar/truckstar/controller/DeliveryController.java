@@ -12,8 +12,15 @@ import java.util.List;
 @RestController
 @RequestMapping("/deliveries")
 public class DeliveryController {
+
+
+    private final DeliveryService deliveryService;
+
     @Autowired
-    private DeliveryService deliveryService;
+    public DeliveryController(DeliveryService deliveryService) {
+        this.deliveryService = deliveryService;
+    }
+
 
     @PostMapping
     public ResponseEntity<Delivery> addDelivery(@RequestBody Delivery delivery) {
@@ -31,12 +38,6 @@ public class DeliveryController {
         Delivery completedDelivery = deliveryService.completeDelivery(id);
         return new ResponseEntity<>(completedDelivery, HttpStatus.OK);
     }
-
-//    @PutMapping("/{id}/complete")
-//    public ResponseEntity<Delivery> completeDelivery(@PathVariable Long id, @RequestParam Double amount) {
-//        Delivery delivery = deliveryService.completeDelivery(id, amount);
-//        return ResponseEntity.ok(delivery);
-//    }
 
     @GetMapping("/totalAmountReceived")
     public ResponseEntity<Double> getTotalAmountReceived() {
