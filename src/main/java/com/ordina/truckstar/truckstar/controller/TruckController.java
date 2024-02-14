@@ -26,6 +26,12 @@ public class TruckController {
         return truckService.getAllTrucks();
     }
 
+    @GetMapping("/total")
+    public ResponseEntity<Long> getTotalNumberOfTrucks() {
+        long totalTrucks = truckService.getTotalNumberOfTrucks();
+        return ResponseEntity.ok(totalTrucks);
+    }
+
     // Additional endpoints as needed
 }
 

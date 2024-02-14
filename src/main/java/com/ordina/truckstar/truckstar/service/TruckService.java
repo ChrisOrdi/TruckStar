@@ -20,5 +20,9 @@ public class TruckService {
         return truckRepository.findAll();
     }
 
+    public long getTotalNumberOfTrucks() {
+        return truckRepository.count();
+    }
+
     // Additional methods as needed
 }

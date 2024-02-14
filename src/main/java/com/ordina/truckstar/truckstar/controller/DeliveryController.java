@@ -38,6 +38,18 @@ public class DeliveryController {
 //        return ResponseEntity.ok(delivery);
 //    }
 
+    @GetMapping("/totalAmountReceived")
+    public ResponseEntity<Double> getTotalAmountReceived() {
+        Double totalAmount = deliveryService.getTotalAmountReceived();
+        return ResponseEntity.ok(totalAmount);
+    }
+
+    @GetMapping("/total")
+    public ResponseEntity<Long> getTotalAmountOfDeliveries() {
+        long totalAmountOfDeliveries = deliveryService.getTotalAmountOfDeliveries();
+        return ResponseEntity.ok(totalAmountOfDeliveries);
+    }
+
     // Additional endpoints as needed
 }
 

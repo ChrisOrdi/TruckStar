@@ -32,6 +32,15 @@ public class DeliveryService {
         return deliveryRepository.save(delivery);
     }
 
+    public Double getTotalAmountReceived() {
+        Double totalAmount = deliveryRepository.sumAmountReceivedForCompletedDeliveries();
+        return totalAmount != null ? totalAmount : 0.0;
+    }
+
+    public long getTotalAmountOfDeliveries() {
+        return deliveryRepository.count();
+    }
+
 
 
     // Additional methods as needed
