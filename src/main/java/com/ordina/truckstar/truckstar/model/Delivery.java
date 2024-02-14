@@ -12,13 +12,18 @@ public class Delivery {
     private String destination;
     private Boolean completed = false;
 
+    private Double amountReceived;
+
+
+
     public Delivery() {
     }
 
-    public Delivery(Long id, String destination, Boolean completed) {
+    public Delivery(Long id, String destination, Boolean completed, Double amountReceived) {
         this.id = id;
         this.destination = destination;
         this.completed = completed;
+        this.amountReceived = amountReceived;
     }
 
     public Long getId() {
@@ -43,5 +48,13 @@ public class Delivery {
 
     public void setCompleted(Boolean completed) {
         this.completed = completed;
+    }
+
+    public Double getAmountReceived() {
+        return amountReceived;
+    }
+
+    public void setAmountReceived(Double amountReceived) {
+        this.amountReceived = amountReceived;
     }
 }

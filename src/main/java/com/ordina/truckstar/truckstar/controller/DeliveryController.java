@@ -32,6 +32,24 @@ public class DeliveryController {
         return new ResponseEntity<>(completedDelivery, HttpStatus.OK);
     }
 
+//    @PutMapping("/{id}/complete")
+//    public ResponseEntity<Delivery> completeDelivery(@PathVariable Long id, @RequestParam Double amount) {
+//        Delivery delivery = deliveryService.completeDelivery(id, amount);
+//        return ResponseEntity.ok(delivery);
+//    }
+
+    @GetMapping("/totalAmountReceived")
+    public ResponseEntity<Double> getTotalAmountReceived() {
+        Double totalAmount = deliveryService.getTotalAmountReceived();
+        return ResponseEntity.ok(totalAmount);
+    }
+
+    @GetMapping("/total")
+    public ResponseEntity<Long> getTotalAmountOfDeliveries() {
+        long totalAmountOfDeliveries = deliveryService.getTotalAmountOfDeliveries();
+        return ResponseEntity.ok(totalAmountOfDeliveries);
+    }
+
     // Additional endpoints as needed
 }
 
