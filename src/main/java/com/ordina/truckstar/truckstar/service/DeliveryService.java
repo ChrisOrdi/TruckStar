@@ -43,6 +43,10 @@ public class DeliveryService {
         return deliveryRepository.count();
     }
 
+    public long getTotalAmountOfCompleted() {
+        return deliveryRepository.count();
+    }
+
 
 
     // Additional methods as needed

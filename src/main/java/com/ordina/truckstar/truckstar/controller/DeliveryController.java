@@ -51,6 +51,12 @@ public class DeliveryController {
         return ResponseEntity.ok(totalAmountOfDeliveries);
     }
 
+    @GetMapping("/totalAmountofCompleted")
+    public ResponseEntity<Long> getTotalAmountOfCompleted() {
+        long totalAmountOfDeliveries = deliveryService.getTotalAmountOfCompleted();
+        return ResponseEntity.ok(totalAmountOfDeliveries);
+    }
+
     // Additional endpoints as needed
 }
 
