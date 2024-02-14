@@ -32,6 +32,12 @@ public class DeliveryController {
         return new ResponseEntity<>(completedDelivery, HttpStatus.OK);
     }
 
+//    @PutMapping("/{id}/complete")
+//    public ResponseEntity<Delivery> completeDelivery(@PathVariable Long id, @RequestParam Double amount) {
+//        Delivery delivery = deliveryService.completeDelivery(id, amount);
+//        return ResponseEntity.ok(delivery);
+//    }
+
     // Additional endpoints as needed
 }
 

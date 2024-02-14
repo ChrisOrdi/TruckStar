@@ -11,14 +11,14 @@ INSERT INTO truck (make, model) VALUES ('Mercedes-Benz', 'Actros');
 
 -- Add more rows as needed...
 
-INSERT INTO delivery (destination, completed) VALUES ( 'New York', false);
-INSERT INTO delivery (destination, completed) VALUES ( 'Los Angeles', true);
-INSERT INTO delivery (destination, completed) VALUES ( 'Chicago', false);
-INSERT INTO delivery (destination, completed) VALUES ( 'Houston', true);
-INSERT INTO delivery (destination, completed) VALUES ( 'Phoenix', false);
-INSERT INTO delivery (destination, completed) VALUES ( 'Philadelphia', true);
-INSERT INTO delivery (destination, completed) VALUES ( 'San Antonio', false);
-INSERT INTO delivery (destination, completed) VALUES ( 'San Diego', true);
-INSERT INTO delivery (destination, completed) VALUES ( 'Dallas', false);
-INSERT INTO delivery (destination, completed) VALUES ( 'San Jose', true);
+INSERT INTO delivery (destination, completed, amount_received) VALUES ( 'New York', false, 0);
+INSERT INTO delivery (destination, completed, amount_received) VALUES ( 'Los Angeles', true, 200.00);
+INSERT INTO delivery (destination, completed, amount_received) VALUES ( 'Chicago', false, 0);
+INSERT INTO delivery (destination, completed, amount_received) VALUES ( 'Houston', true, 250.00);
+INSERT INTO delivery (destination, completed, amount_received) VALUES ( 'Phoenix', false, 0);
+INSERT INTO delivery (destination, completed, amount_received) VALUES ( 'Philadelphia', true, 500.00);
+INSERT INTO delivery (destination, completed, amount_received) VALUES ( 'San Antonio', false, 0);
+INSERT INTO delivery (destination, completed, amount_received) VALUES ( 'San Diego', true, 700.00);
+INSERT INTO delivery (destination, completed, amount_received) VALUES ( 'Dallas', false, 0);
+INSERT INTO delivery (destination, completed, amount_received) VALUES ( 'San Jose', true, 50.00);
 -- Add more rows as needed...
