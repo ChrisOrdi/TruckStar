@@ -2,20 +2,22 @@ package com.ordina.truckstar.truckstar.service;
 
 import com.ordina.truckstar.truckstar.model.Delivery;
 import com.ordina.truckstar.truckstar.repository.DeliveryRepository;
-import jakarta.persistence.EntityNotFoundException;
-import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
-import java.util.logging.Logger;
 
 @Service
 public class DeliveryService {
 
 
+
+   private final DeliveryRepository deliveryRepository;
+
    @Autowired
-   private DeliveryRepository deliveryRepository;
+   public DeliveryService(DeliveryRepository deliveryRepository) {
+       this.deliveryRepository = deliveryRepository;
+   }
 
     public Delivery saveDelivery(Delivery delivery) {
         return deliveryRepository.save(delivery);
@@ -40,6 +42,16 @@ public class DeliveryService {
     public long getTotalAmountOfDeliveries() {
         return deliveryRepository.count();
     }
+
+    public long getTotalAmountOfCompleted() {
+        return deliveryRepository.count();
+    }
+
+    public Double getAverageAmountReceivedForCompletedDeliveries() {
+        Double averageAmount = deliveryRepository.avgAmountReceivedForCompletedDeliveries();
+        return averageAmount != null ? averageAmount : 0.0;
+    }
+
 
 
 

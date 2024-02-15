@@ -9,9 +9,14 @@ import java.util.List;
 
 @Service
 public class TruckService {
-    @Autowired
-    private TruckRepository truckRepository;
 
+
+    private final TruckRepository truckRepository;
+
+    @Autowired
+    public TruckService(TruckRepository truckRepository) {
+        this.truckRepository = truckRepository;
+    }
     public Truck saveTruck(Truck truck) {
         return truckRepository.save(truck);
     }

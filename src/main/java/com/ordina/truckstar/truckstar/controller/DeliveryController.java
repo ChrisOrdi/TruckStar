@@ -12,8 +12,15 @@ import java.util.List;
 @RestController
 @RequestMapping("/deliveries")
 public class DeliveryController {
+
+
+    private final DeliveryService deliveryService;
+
     @Autowired
-    private DeliveryService deliveryService;
+    public DeliveryController(DeliveryService deliveryService) {
+        this.deliveryService = deliveryService;
+    }
+
 
     @PostMapping
     public ResponseEntity<Delivery> addDelivery(@RequestBody Delivery delivery) {
@@ -32,21 +39,27 @@ public class DeliveryController {
         return new ResponseEntity<>(completedDelivery, HttpStatus.OK);
     }
 
-//    @PutMapping("/{id}/complete")
-//    public ResponseEntity<Delivery> completeDelivery(@PathVariable Long id, @RequestParam Double amount) {
-//        Delivery delivery = deliveryService.completeDelivery(id, amount);
-//        return ResponseEntity.ok(delivery);
-//    }
-
     @GetMapping("/totalAmountReceived")
     public ResponseEntity<Double> getTotalAmountReceived() {
         Double totalAmount = deliveryService.getTotalAmountReceived();
         return ResponseEntity.ok(totalAmount);
     }
 
+    @GetMapping("/averageAmountReceived")
+    public ResponseEntity<Double> getAverageAmountReceived() {
+        Double averageAmount = deliveryService.getAverageAmountReceivedForCompletedDeliveries();
+        return ResponseEntity.ok(averageAmount);
+    }
+
     @GetMapping("/total")
     public ResponseEntity<Long> getTotalAmountOfDeliveries() {
         long totalAmountOfDeliveries = deliveryService.getTotalAmountOfDeliveries();
+        return ResponseEntity.ok(totalAmountOfDeliveries);
+    }
+
+    @GetMapping("/totalAmountofCompleted")
+    public ResponseEntity<Long> getTotalAmountOfCompleted() {
+        long totalAmountOfDeliveries = deliveryService.getTotalAmountOfCompleted();
         return ResponseEntity.ok(totalAmountOfDeliveries);
     }
 
