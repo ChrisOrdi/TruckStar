@@ -45,6 +45,12 @@ public class DeliveryController {
         return ResponseEntity.ok(totalAmount);
     }
 
+    @GetMapping("/averageAmountReceived")
+    public ResponseEntity<Double> getAverageAmountReceived() {
+        Double averageAmount = deliveryService.getAverageAmountReceivedForCompletedDeliveries();
+        return ResponseEntity.ok(averageAmount);
+    }
+
     @GetMapping("/total")
     public ResponseEntity<Long> getTotalAmountOfDeliveries() {
         long totalAmountOfDeliveries = deliveryService.getTotalAmountOfDeliveries();

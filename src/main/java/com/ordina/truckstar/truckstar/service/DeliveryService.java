@@ -47,6 +47,12 @@ public class DeliveryService {
         return deliveryRepository.count();
     }
 
+    public Double getAverageAmountReceivedForCompletedDeliveries() {
+        Double averageAmount = deliveryRepository.avgAmountReceivedForCompletedDeliveries();
+        return averageAmount != null ? averageAmount : 0.0;
+    }
+
+
 
 
     // Additional methods as needed
